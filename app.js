@@ -1,9 +1,9 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
 import { XRButton } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/webxr/XRButton.js';
 
-import { initSettings, getFrequency } from './features/settings.js';
-import { spawnPopup, updatePopups } from './features/popupSpawner.js';
-import { initInteraction } from './features/interaction.js';
+import { initSettings, getFrequency } from './Features/settings.js';
+import { spawnPopup, updatePopups } from './Features/popupSpawner.js';
+import { initInteraction } from './Features/interaction.js';
 
 let camera, scene, renderer;
 let lastSpawn = 0;
