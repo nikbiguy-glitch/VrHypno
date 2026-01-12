@@ -1,17 +1,16 @@
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+import { XRButton } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/webxr/XRButton.js';
+
 import { initSettings, getFrequency } from './features/settings.js';
 import { spawnPopup, updatePopups } from './features/popupSpawner.js';
 import { initInteraction } from './features/interaction.js';
 
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
-import { XRButton } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/webxr/XRButton.js';
-
-export let camera, scene, renderer;
-
+let camera, scene, renderer;
 let lastSpawn = 0;
 
-init();
+initSettings(startXR);
 
-function init() {
+function startXR() {
   scene = new THREE.Scene();
 
   camera = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, 0.01, 20);
@@ -23,14 +22,10 @@ function init() {
 
   scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1));
 
-  initSettings(startXR);
-}
-
-function startXR() {
+  // ⚠ MUST be created directly in user click
   document.body.appendChild(
     XRButton.createButton(renderer, {
-      requiredFeatures: ['local-floor'],
-      optionalFeatures: ['hand-tracking']
+      requiredFeatures: ['local-floor']
     })
   );
 
