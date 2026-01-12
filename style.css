@@ -28,3 +28,15 @@ button {
 p {
   color: #666;
 }
+
+label {
+  color: #aaa;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input {
+  width: 220px;
+}
+
